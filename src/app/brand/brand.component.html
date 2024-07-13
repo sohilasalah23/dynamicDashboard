@@ -1,0 +1,11 @@
+<div class="container ">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 product" *ngFor="let brand of allbrands">
+
+            <a [routerLink]="['/brandDetials',brand._id]">
+                <img [src]="brand.image" class="w-100" alt="">
+                <p class="text-main text-center">{{brand.name}}</p>
+
+            </a>
+        </div>
+    </div>

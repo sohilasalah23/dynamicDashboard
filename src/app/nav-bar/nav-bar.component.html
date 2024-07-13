@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" routerLink="">
+            <figure>
+                <img src="../../assets/images/freshcart-logo.svg" alt="" class="w-100">
+            </figure>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 280px;"
+                *ngIf="isLoggedIN">
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="home" routerLinkActive="activerouter">Home</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="category" routerLinkActive="activerouter">categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="brand" routerLinkActive="activerouter">brands</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="cart" routerLinkActive="activerouter">cart</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link cursor-pointer"> <i class="fa-brands text-black fa-instagram"></i> </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link cursor-pointer"> <i class="fa-brands text-black fa-facebook"></i> </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link cursor-pointer"> <i class="fa-brands text-black fa-twitter"></i> </a>
+                </li>
+
+
+            </ul>
+            <!-- <div class="d-flex " role="search"> -->
+            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
+                <li class="nav-item" *ngIf="!isLoggedIN">
+                    <a class="nav-link " routerLink="register" routerLinkActive="activerouter">Register</a>
+                </li>
+                <li class="nav-item" *ngIf="!isLoggedIN">
+                    <a class="nav-link" routerLink="login" routerLinkActive="activerouter">login</a>
+                </li>
+                <li (click)="logOut()" class="nav-item" *ngIf="isLoggedIN">
+                    <a class="nav-link cursor-pointer logOut" routerLinkActive="activerouter">logOut</a>
+                </li>
+
+                <li class="nav-item position-relative" *ngIf="isLoggedIN">
+                    <a class="nav-link cursor-pointer" routerLink="/cart">
+                        <i class="fa fa-shopping-cart text-main fs-3"></i>
+                        <div class="badge bg-main position-absolute top-0 end-0">
+                            {{numOfCartItems}}
+                        </div>
+
+                    </a>
+                </li>
+            </ul>
+
+            <!-- </div> -->
+        </div>
+
+
+    </div>
+</nav>
